@@ -10,10 +10,24 @@
  *
  */
 
+function jadenCase(str) {
+  var wordsArray = str.split(/\s+/);
+  var upperCased = wordsArray.map(function(word) {
+    return word.charAt(0).toUpperCase() + word.substr(1);
+  });
+  return upperCased.join(" ");
+}
+
 
 
 //* Begin of tests
 const assert = require('assert')
+assert.strictEqual(typeof jadenCase, "function")
+assert.strictEqual(jadenCase('str'), 'Str')
+assert.strictEqual(jadenCase('qsdqsdqsd'), 'Qsdqsdqsd')
+assert.strictEqual(jadenCase('STR'), 'STR')
+assert.strictEqual(jadenCase('zapZAP'), 'ZapZAP')
+//assert.fail('You must write your own tests')
 
-assert.fail('You must write your own tests')
+
 // End of tests */
